@@ -64,7 +64,7 @@
 //     return getSlimbStairs(n)
 // }
 
-
+//斐波那契数列
 /**
  * @param {number} n
  * @return {number}
@@ -85,7 +85,6 @@ let climbStairs = function(n) {
 
     return sum
 }
-
 
 // console.log(climbStairs(3))
 // console.log(climbStairs(4))
