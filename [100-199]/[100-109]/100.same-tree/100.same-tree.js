@@ -61,12 +61,36 @@
  *     this.left = this.right = null;
  * }
  */
+//递归
+// /**
+//  * @param {TreeNode} p
+//  * @param {TreeNode} q
+//  * @return {boolean}
+//  */
+// let isSameTree = function(p, q) {
+//     if (p === null && q === null) return true
+//     if (p === null || q === null) return false
+//     if (p.val !== q.val) return false
+//     return isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+// }
+
+
 /**
  * @param {TreeNode} p
  * @param {TreeNode} q
  * @return {boolean}
  */
-var isSameTree = function(p, q) {
-    
-};
-
+let isSameTree = function(p, q) {
+    let arr = [[p, q]]
+    while (arr.length > 0){
+        let [l, r] = arr.shift()
+        if (l === null && r === null) continue
+        if (l && r && l.val === r.val){
+            arr.push([l.left, r.left])
+            arr.push([l.right, r.right])
+        } else {
+            return false
+        }
+    }
+    return true
+}
