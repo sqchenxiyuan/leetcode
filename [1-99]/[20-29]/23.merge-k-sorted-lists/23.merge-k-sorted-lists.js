@@ -1,3 +1,32 @@
+/*
+ * @lc app=leetcode id=23 lang=javascript
+ *
+ * [23] Merge k Sorted Lists
+ *
+ * https://leetcode.com/problems/merge-k-sorted-lists/description/
+ *
+ * algorithms
+ * Hard (33.52%)
+ * Total Accepted:    362.9K
+ * Total Submissions: 1.1M
+ * Testcase Example:  '[[1,4,5],[1,3,4],[2,6]]'
+ *
+ * Merge k sorted linked lists and return it as one sorted list. Analyze and
+ * describe its complexity.
+ * 
+ * Example:
+ * 
+ * 
+ * Input:
+ * [
+ * 1->4->5,
+ * 1->3->4,
+ * 2->6
+ * ]
+ * Output: 1->1->2->3->4->4->5->6
+ * 
+ * 
+ */
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -47,38 +76,3 @@ let mergeKLists = function(lists) {
 
     return mergeKLists(arr)
 }
-
-// let mergeKLists = function(lists) {
-//     let l3 = null
-//     let l3end = null
-//     lists = lists.filter(list => list)
-
-//     while (lists.length > 0){
-//         let min = Infinity
-//         let minIndex = null
-//         lists.forEach((list, index) => {
-//             if (list.val < min){
-//                 min = list.val
-//                 minIndex = index
-//             }
-//         })
-
-//         let node = lists[minIndex]
-
-//         if (l3end){
-//             l3end.next = node
-//         } else {
-//             l3 = node
-//         }
-//         l3end = node
-
-//         if (lists.length === 1) break
-
-//         lists[minIndex] = node.next
-//         if (!lists[minIndex]){
-//             lists.splice(minIndex, 1)
-//         }
-//     }
-
-//     return l3
-// }
