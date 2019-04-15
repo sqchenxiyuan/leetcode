@@ -95,7 +95,7 @@ let isValidSudoku = function(board) {
                 let x = parseInt(board[i][j])
                 if (x < 1 || x > 9) return false
 
-                let sets = [clos[i], rows[j], blocks[parseInt(i / 3) + parseInt(j / 3) * 3]]
+                let sets = [clos[j], rows[i], blocks[parseInt(j / 3) + parseInt(i / 3) * 3]]
                 if (sets.some(set => set.has(x))){
                     return false
                 }
