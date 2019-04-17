@@ -54,21 +54,21 @@
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum = function(candidates, target) {
+let combinationSum = function(candidates, target) {
     let arr = []
     candidates.forEach((candidate, index) => {
         let x = target - candidate
-        if(x > 0){
+        if (x > 0){
             let nextCandidates = candidates.slice(index)
             let res = combinationSum(nextCandidates, x)
             res.forEach(r => r.unshift(candidate))
             arr = arr.concat(res)
-        } else if(x === 0) {
+        } else if (x === 0) {
             arr.push([candidate])
         }
     })
     return arr
-};
+}
 
 // let x1 = combinationSum([2,3,6,7], 7)
 // let x2 = combinationSum([2,3,5], 8)
