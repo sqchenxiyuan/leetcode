@@ -15,14 +15,7 @@ let uniquePaths = function(m, n) {
         if (cache[m][n]) return cache[m][n]
         if (m === 1 || n === 1) return 1
 
-        let sum = 0
-        if (m > 1){
-            sum += uniquePath(m - 1, n)
-        }
-
-        if (n > 1){
-            sum += uniquePath(m, n - 1)
-        }
+        let sum = uniquePath(m - 1, n) + uniquePath(m, n - 1)
         cache[m][n] = sum
         return sum
     }
