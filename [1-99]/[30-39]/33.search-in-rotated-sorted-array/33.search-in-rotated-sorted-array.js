@@ -43,35 +43,36 @@
  * @return {number}
  */
 let search = function(nums, target) {
-    let x = 0 //偏移量
-    //先判断是否有颠倒
-    if (nums[0] > nums[nums.length - 1]){
-        let i = 0; j = nums.length - 1
-        //寻找交换点
-        while (i < j - 1){
-            let mid = parseInt((i + j) / 2)
-            if (nums[i] < nums[mid]){
-                i = mid
-            } else {
-                j = mid
-            }
-        }
-        x = j
-    }
-    
-    //二分查找
+    if (nums.length === 0) return -1
+
     let i = 0; j = nums.length - 1
     while (i <= j){
         let mid = parseInt((i + j) / 2)
-        let xmid = (mid + x) % nums.length
-        if (nums[xmid] < target){
-            i = mid + 1
-        } else if (nums[xmid] > target){
-            j = mid - 1
+        if (target < nums[mid]){
+            if (nums[mid] < nums[j]){
+                j = mid - 1
+            } else {
+                if (target < nums[i]){
+                    i = mid + 1
+                } else {
+                    j = mid - 1
+                }
+            }
+        } else if (target > nums[mid]){
+            if (nums[mid] > nums[i]){
+                i = mid + 1
+            } else {
+                if (target > nums[j]){
+                    j = mid - 1
+                } else {
+                    i = mid + 1
+                }
+            }
         } else {
-            return xmid
+            return mid
         }
     }
+    
     return -1
 }
 
