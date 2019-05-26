@@ -27,7 +27,6 @@
         "quotes":["error", "double", {"allowTemplateLiterals": true}]//必须双引号，允许反勾号
     },
     "env": {//环境
-        "browser": true,
         "node": true
     }
 }
