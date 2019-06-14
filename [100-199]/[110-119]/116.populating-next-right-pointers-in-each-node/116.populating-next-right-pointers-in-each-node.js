@@ -38,19 +38,21 @@
 // }
 
 let connect = function(root) {
-    if (root === null) return null
-    if (!root.left && !root.right) return root
+    
+    function connectLeft(root, rootLeft){
+        if (root === null) return
 
-    let left = connect(root.left)
-    let right = connect(root.right)
-    left.next = right
+        let nextLevelLeft = rootLeft ? rootLeft.right : null
 
-    //完美二叉树每层都有
-    while (left.right){
-        left = left.right
-        right = right.left
-        left.next = right
+        connectLeft(root.left, nextLevelLeft)
+        connectLeft(root.right, root.left)
+
+        if (rootLeft){
+            rootLeft.next = root
+        }
     }
+
+    connectLeft(root, null)
 
     return root
 }
