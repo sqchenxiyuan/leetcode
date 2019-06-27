@@ -8,6 +8,23 @@
  * @param {string[]} wordDict
  * @return {boolean}
  */
+// let wordBreak = function(s, wordDict) {
+
+//     let cache = new Array(s.length + 1).fill(false)
+//     cache[0] = true
+
+//     for (let i = 1; i <= s.length; i++){
+//         for (let j = 0; j < wordDict.length; j++){
+//             let start = i - wordDict[j].length
+//             if (cache[start] && start >= 0 && s.slice(start, i) === wordDict[j]){
+//                 cache[i] = true
+//             }
+//         }
+//     }
+
+//     return cache[s.length] 
+// }
+
 let wordBreak = function(s, wordDict) {
 
     function Node(val){
