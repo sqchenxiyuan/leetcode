@@ -22,16 +22,16 @@ let maxPoints = function(points) {
         let dx = p1[0] - p2[0]
         let dy = p1[1] - p2[1]
 
-        let gcd = gcd(dy, dx)
-        dx /= gcd
-        dy /= gcd
+        if (dx === 0) return "---"
+
+        let c = gcd(dy, dx)
+        dx /= c
+        dy /= c
 
         if (dy < 0){
             dx = -dx
             dy = -dy
         }
-
-        if (dx === 0) return "---"
 
         return `${dx}=${dy}`
     }
@@ -39,21 +39,27 @@ let maxPoints = function(points) {
 
     let max = 2
     for (let i = 0; i < points.length; i++){
-        let p = points[i]
+        let p1 = points[i]
+        let dup = 0
         let pmax = 0
         let map = new Map()
 
         for (let j = 0; j < points.length; j++){
-            let flag = getFlag(p, points[j])
+            let p2 = points[j]
+            if (p1[0] === p2[0] && p1[1] === p2[1]){
+                dup++
+                continue
+            }
+
+            let flag = getFlag(p1, p2)
             if (map.has(flag)){
                 map.set(flag, map.get(flag) + 1)
             } else {
-                map.set(flag, 2)
+                map.set(flag, 1)
             }
-            pmax = pmax.get(flag)
-            pmax = Math.max(pmax, pmax)
+            pmax = Math.max(pmax, map.get(flag))
         }
-        max = Math.max(max, pmax)
+        max = Math.max(max, pmax + dup)
     }
 
     return max
@@ -63,5 +69,4 @@ let maxPoints = function(points) {
 // console.log(maxPoints([[1, 1], [3, 2], [5, 3], [4, 1], [2, 3], [1, 4]]))
 // console.log(maxPoints([[1, 1], [1, 1], [2, 2], [2, 2]]))
 // console.log(maxPoints([[3, 1], [12, 3], [3, 1], [-6, -1]]))
-console.log(94911151 * 94911151)
-console.log(maxPoints([[0, 0], [94911151, 94911150], [94911152, 94911151]]))
+// console.log(maxPoints([[0, 0], [94911151, 94911150], [94911152, 94911151]]))
