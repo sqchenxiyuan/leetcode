@@ -19,19 +19,23 @@ let findOrder = function(numCourses, prerequisites) {
     let result = []
     function find(index){
         if (visited[index]) return true
-        if (stack[index]) return false
-        stack[index] = true
-        if (map[index].some(j => !find(j))){
-            return false
+        {
+            if (stack[index]) return false
+            stack[index] = true
+            {
+                if (map[index].some(j => !find(j))){
+                    return false
+                }
+            }
+            stack[index] = false
         }
-        stack[index] = false
-        result.push(index)
         visited[index] = true
+
+        result.push(index)
         return true
     }
 
     for (let i = 0; i < numCourses; i++){
-        if (visited[i]) continue
         if (!find(i)) return []
     }
     return result
