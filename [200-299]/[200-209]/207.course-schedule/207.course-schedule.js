@@ -3,6 +3,7 @@
  *
  * [207] Course Schedule
  */
+//看是否有环
 /**
  * @param {number} numCourses
  * @param {number[][]} prerequisites
