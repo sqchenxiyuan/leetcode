@@ -39,4 +39,4 @@ let maxCoins = function(nums) {
 }
 // @lc code=end
 
-console.log(maxCoins([3, 1, 5, 8]))
+// console.log(maxCoins([3, 1, 5, 8]))
