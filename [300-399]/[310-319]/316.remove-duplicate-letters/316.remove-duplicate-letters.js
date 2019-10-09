@@ -25,5 +25,5 @@ let removeDuplicateLetters = function(s) {
 // @lc code=end
 
 // console.log(removeDuplicateLetters("bcabc"))
-console.log(removeDuplicateLetters("cbacdcbc"))
+// console.log(removeDuplicateLetters("cbacdcbc"))
 
