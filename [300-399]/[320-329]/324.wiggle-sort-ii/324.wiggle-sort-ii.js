@@ -72,6 +72,7 @@ let wiggleSort = function(nums) {
         [nums[i], nums[j]] = [nums[j], nums[i]]
     }
 
+    //????
     let i = 0, j = 0, k = len - 1
     while (j <= k) {
         if (nums[getIndex(j)] > mid)
