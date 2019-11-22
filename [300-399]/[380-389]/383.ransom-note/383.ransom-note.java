@@ -5,8 +5,6 @@
  */
 
 // @lc code=start
-package fun.chenxiyuan.demo.leetcode_383;
-
 import java.util.Arrays;
 
 //class Solution {
