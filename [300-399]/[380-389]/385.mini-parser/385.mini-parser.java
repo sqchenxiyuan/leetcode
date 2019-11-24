@@ -5,8 +5,6 @@
  */
 
 // @lc code=start
-package fun.chenxiyuan.demo.leetcode_385;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,10 +38,6 @@ import java.util.List;
  */
 
 class Solution {
-
-    private boolean isChar(char c){
-        return '0' <= c && c <= '9';
-    }
 
     public NestedInteger deserialize(String s) {
         s = s.trim();
