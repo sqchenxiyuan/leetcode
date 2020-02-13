@@ -17,8 +17,9 @@ public class Solution {
     }
 
     public double[] randPoint() {
-        double r = 2 * Math.PI * Math.random();
-        return new double[]{ x_center + radius * Math.cos(r), y_center + radius * Math.cos(r) };
+        double o = 2 * Math.PI * Math.random();
+        double r = Math.sqrt(Math.random()) * radius; //使用sqrt使得分布均匀 https://leetcode.com/problems/generate-random-point-in-a-circle/discuss/155650/Explanation-with-Graphs-why-using-Math.sqrt()
+        return new double[]{ x_center + r * Math.cos(o), y_center + r * Math.sin(o) };
     }
 }
 /**
