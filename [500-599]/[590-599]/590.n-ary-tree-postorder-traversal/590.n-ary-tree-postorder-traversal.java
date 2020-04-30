@@ -23,10 +23,22 @@ class Node {
     }
 };
 */
+import java.util.ArrayList;
+import java.util.List;
 
-class Solution {
+public class Solution {
     public List<Integer> postorder(Node root) {
-        
+        List<Integer> res = new ArrayList<>();
+        postorder(res, root);
+        return res;
+    }
+
+    public void postorder(List<Integer> list, Node root) {
+        if(root == null) return;
+        for(Node child : root.children){
+            postorder(list, child);
+        }
+        list.add(root.val);
     }
 }
 // @lc code=end

@@ -23,10 +23,23 @@ class Node {
     }
 };
 */
+import java.util.ArrayList;
+import java.util.List;
 
-class Solution {
+
+public class Solution {
     public List<Integer> preorder(Node root) {
-        
+        List<Integer> res = new ArrayList<>();
+        preorder(res, root);
+        return res;
+    }
+
+    public void preorder(List<Integer> list, Node root) {
+        if(root == null) return;
+        list.add(root.val);
+        for(Node child : root.children){
+            preorder(list, child);
+        }
     }
 }
 // @lc code=end
