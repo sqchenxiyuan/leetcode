@@ -1,5 +1,3 @@
-package fun.chenxiyuan.leetcode.week.p3;
-
 import java.util.*;
 
 class Solution {
