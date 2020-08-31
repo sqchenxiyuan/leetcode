@@ -1,21 +1,13 @@
-import java.util.*;
-
-class Solution {
-    public boolean isHappy(int n) {
-        Set<Integer> set = new HashSet<>();
-
-        while(n != 1){
-            if(set.contains(n)) return false;
-            set.add(n);
-            int next = 0;
-            while(n > 0){
-                int d = n % 10;
-                next += d*d;
-                n /= 10;
-            }
-            n = next;
+public class Solution {
+    public int titleToNumber(String s) {
+        char[] chars = s.toCharArray();
+        int res = 0;
+        int base = 1;
+        for(int i = chars.length - 1; i >= 0; i--){
+            int x = chars[i] - 'A' + 1;
+            res += x * base;
+            base *= 26;
         }
-
-        return true;
+        return res;
     }
 }
